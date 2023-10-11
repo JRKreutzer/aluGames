@@ -2,9 +2,15 @@ function alterarStatus(id) {
     
     let jogoSelecionado = document.querySelector(`#game-${id}`);
     let imagemJogo = jogoSelecionado.querySelector(".dashboard__item__img");
-    let textoJogo = jogoSelecionado.querySelector(".dashboard__item__name");
     let botaoJogo = jogoSelecionado.querySelector(".dashboard__item__button");
-    
-    alert(botaoJogo.innerHTML);
-    
+
+    if (imagemJogo.classList.contains("dashboard__item__img--rented")) {
+        imagemJogo.classList.remove("dashboard__item__img--rented");
+        botaoJogo.textContent = "Alugar";
+        botaoJogo.classList.remove("dashboard__item__button--return");
+    } else {
+        imagemJogo.classList.add("dashboard__item__img--rented");
+        botaoJogo.textContent = "Devolver";
+        botaoJogo.classList.add("dashboard__item__button--return");
+    }
 }
